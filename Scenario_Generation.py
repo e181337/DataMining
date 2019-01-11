@@ -17,29 +17,20 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import random as rd
 # Importing the dataset
-
-
 a = [[0  for i in range(1000)] for j in range(1000)]
 ac = [[0  for i in range(1000)] for j in range(1000)]
-
-
 dataset = pd.read_csv('Data.csv')
 X = dataset.iloc[:, 3:].values
 import random
 y=[[random.randint(0,2) for i in range(301)] for j in range(121)]   
-
-
 for i in range(0,120):
     for j in range (0,300):
         
         #c=(X[i][b])
-        a[i][j]=(X[j][y[i][j]])
-
-
-
+        a[i][j]=(X[i][y[i][j]])
 from pandas import DataFrame
 df=pd.DataFrame(a)
-wrt=pd.ExcelWriter('scenario.xlsx',engine='xlsxwriter')
+wrt=pd.ExcelWriter('scenario2.xlsx',engine='xlsxwriter')
 df.to_excel(wrt)
 wrt.save()
 
